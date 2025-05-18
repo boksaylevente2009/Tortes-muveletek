@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "msedge",
+          "request": "launch",
+          "name": "Debug App in MS Edge",
+          "url": "http://localhost:8080",
+          "webRoot": "${workspaceFolder}/src",
+          "sourceMapPathOverrides": {
+              "webpack:///./src/*": "${webRoot}/*"
+          },
+          "runtimeArgs": [
+              "--remote-debugging-port=9222"
+          ],
+          "sourceMaps": true
+      }
+  ]
+}
