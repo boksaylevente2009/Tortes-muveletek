@@ -42,14 +42,18 @@ function számol() {
             nsz += Math.max(osztando1, osztando2);
         }
         if (oszto1 != 0 && oszto2 != 0 && osztando1 >= 0 && osztando2 >= 0 && m == "összeadás") {
-            const össze1: number = oszto1 * (nsz / oszto1);
+            const össze1: number = oszto1 * osztando2;
+            const össze2: number = oszto2 * osztando1;
+            const össze3: number = össze1 + össze2;
 
-            eredmény.innerHTML = `${oszto1} / ${osztando1} + ${oszto2} / ${osztando2} = ${xy} + ${yx} = ${össze1} / ${nsz}`;
+            eredmény.innerHTML = `${oszto1} / ${osztando1} + ${oszto2} / ${osztando2} = ${xy} + ${yx} = ${össze3} / ${nsz}`;
         }
         if (oszto1 != 0 && oszto2 != 0 && osztando1 >= 0 && osztando2 >= 0 && m == "kivonás") {
-            const kivon1: number = oszto1 * (nsz / oszto1);
+            const kivon1: number = oszto1 * osztando2;
+            const kivon2: number = oszto2 * osztando1;
+            const kivon3: number = kivon1 - kivon2;
 
-            eredmény.innerHTML = `${oszto1} / ${osztando1} - ${oszto2} / ${osztando2} = ${xy} - ${yx} = ${kivon1} / ${nsz}`;
+            eredmény.innerHTML = `${oszto1} / ${osztando1} - ${oszto2} / ${osztando2} = ${xy} - ${yx} = ${kivon3} / ${nsz}`;
         }
         if (oszto1 != 0 && oszto2 != 0 && osztando1 >= 0 && osztando2 >= 0 && m == "szorzás") {
             const szor1: number = oszto1 * oszto2;
