@@ -11,6 +11,7 @@ function számol() {
         tört2 instanceof HTMLInputElement &&
         tört3 instanceof HTMLInputElement &&
         tört4 instanceof HTMLInputElement &&
+        muvelet instanceof HTMLInputElement &&
         eredmény instanceof HTMLElement
     ) {
         const xy: number = parseInt(tört1.value) / parseInt(tört2.value);
@@ -19,8 +20,17 @@ function számol() {
         const oszto2: number = parseInt(tört3.value);
         const osztando1: number = parseInt(tört2.value);
         const osztando2: number = parseInt(tört4.value);
+        const m: string = muvelet.value;
 
-        if (isNaN(xy) || isNaN(yx) || isNaN(oszto1) || isNaN(oszto2) || isNaN(osztando1) || isNaN(osztando2)) {
+        if (
+            isNaN(xy) ||
+            isNaN(yx) ||
+            isNaN(oszto1) ||
+            isNaN(oszto2) ||
+            isNaN(osztando1) ||
+            isNaN(osztando2) ||
+            (m != "szorzás" && m != "osztás" && m != "összeadás" && m != "kivonás")
+        ) {
             eredmény.innerHTML = "A megadott számok egyike nem jó!";
             return;
         }
@@ -31,11 +41,15 @@ function számol() {
         while (nsz % ksz !== 0) {
             nsz += Math.max(osztando1, osztando2);
         }
-        if (oszto1 != 0 && oszto2 != 0 && osztando1 >= 0 && osztando2 >= 0) {
-            const szam1: number = oszto1 * (nsz / oszto1);
-            const szam2: number = oszto2 * (nsz / oszto2);
+        if (oszto1 != 0 && oszto2 != 0 && osztando1 >= 0 && osztando2 >= 0 && m == "összeadás") {
+            const össze1: number = oszto1 * (nsz / oszto1);
 
-            eredmény.innerHTML = `${oszto1} / ${osztando1} + ${oszto2} / ${osztando2} = ${xy} + ${yx} = ${szam1} / ${szam2}`;
+            eredmény.innerHTML = `${oszto1} / ${osztando1} + ${oszto2} / ${osztando2} = ${xy} + ${yx} = ${össze1} / ${nsz}`;
+        }
+        if (oszto1 != 0 && oszto2 != 0 && osztando1 >= 0 && osztando2 >= 0 && m == "kivonás") {
+            const kivon1: number = oszto1 * (nsz / oszto1);
+
+            eredmény.innerHTML = `${oszto1} / ${osztando1} - ${oszto2} / ${osztando2} = ${xy} - ${yx} = ${kivon1} / ${nsz}`;
         }
     }
 }
@@ -44,3 +58,4 @@ document.getElementById("tört1")!.addEventListener("input", számol);
 document.getElementById("tört2")!.addEventListener("input", számol);
 document.getElementById("tört3")!.addEventListener("input", számol);
 document.getElementById("tört4")!.addEventListener("input", számol);
+document.getElementById("művelet")!.addEventListener("input", számol);
