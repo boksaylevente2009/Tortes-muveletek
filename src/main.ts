@@ -3,6 +3,7 @@ function számol() {
     const tört2 = document.getElementById("tört2");
     const tört3 = document.getElementById("tört3");
     const tört4 = document.getElementById("tört4");
+    const muvelet = document.getElementById("művelet");
     const eredmény = document.getElementById("eredmény");
 
     if (
@@ -35,8 +36,6 @@ function számol() {
             const szam2: number = oszto2 * (nsz / oszto2);
 
             eredmény.innerHTML = `${oszto1} / ${osztando1} + ${oszto2} / ${osztando2} = ${xy} + ${yx} = ${szam1} / ${szam2}`;
-        } else {
-            eredmény.innerHTML = "Nullánál nagyobb számot adj meg!";
         }
     }
 }
