@@ -51,6 +51,18 @@ function számol() {
 
             eredmény.innerHTML = `${oszto1} / ${osztando1} - ${oszto2} / ${osztando2} = ${xy} - ${yx} = ${kivon1} / ${nsz}`;
         }
+        if (oszto1 != 0 && oszto2 != 0 && osztando1 >= 0 && osztando2 >= 0 && m == "szorzás") {
+            const szor1: number = oszto1 * oszto2;
+            const szor2: number = osztando1 * osztando2;
+
+            eredmény.innerHTML = `${oszto1} / ${osztando1} * ${oszto2} / ${osztando2} = ${xy} * ${yx} = ${szor1} / ${szor2}`;
+        }
+        if (oszto1 != 0 && oszto2 != 0 && osztando1 >= 0 && osztando2 >= 0 && m == "osztás") {
+            const oszt1: number = oszto1 * osztando2;
+            const oszt2: number = oszto2 * osztando1;
+
+            eredmény.innerHTML = `(${oszto1} / ${osztando1}) / (${oszto2} / ${osztando2}) = ${xy} / ${yx} = ${oszt1} / ${oszt2}`;
+        }
     }
 }
 
